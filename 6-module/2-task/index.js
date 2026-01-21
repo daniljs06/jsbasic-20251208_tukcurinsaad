@@ -5,7 +5,7 @@ export default class ProductCard {
     this.elem = this.render();
   }
   render() {
-  let card = createElement(`
+    let card = createElement(`
     <div class="card">
     <div class="card__top">
         <img src="/assets/images/products/${this.product.image}" class="card__image" alt="product">
@@ -20,13 +20,13 @@ export default class ProductCard {
 </div>
     `);
     let button = card.querySelector(".card__button");
-  button.addEventListener("click",() => {
-    let eventCard = new CustomEvent("product-add", {
-      detail: this.product.id,
-      bubbles: true
-  });
-  card.dispatchEvent(eventCard);
-});
-  return card;
+    button.addEventListener("click", () => {
+      let eventCard = new CustomEvent("product-add", {
+        detail: this.product.id,
+        bubbles: true
+      });
+      card.dispatchEvent(eventCard);
+    });
+    return card;
   }
 } 
